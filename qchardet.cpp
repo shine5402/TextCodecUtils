@@ -40,3 +40,8 @@ QTextCodec *QChardet::encodingForFile(QString fileName, float *confidence)
     auto file = new QFile(fileName);
     return encodingForFile(file,confidence);
 }
+
+QString QChardet::libchardetVersion()
+{
+    return LIBCHARDET_VERSION;
+}

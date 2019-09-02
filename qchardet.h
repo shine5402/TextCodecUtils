@@ -14,6 +14,7 @@ public:
     static QTextCodec *encodingForByteArray(QByteArray string, float *confidence = nullptr);
     static QTextCodec *encodingForFile(QFile* file,float *confidence = nullptr);
     static QTextCodec *encodingForFile(QString fileName,float *confidence = nullptr);
+    static QString libchardetVersion();
 };
 
 #endif // QCHARDET_H
