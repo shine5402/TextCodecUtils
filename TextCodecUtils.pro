@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     availabletextcodecdialog.cpp \
+    qchardet.cpp \
     textcodecconvertdialog.cpp \
     textconverthelper.cpp
 

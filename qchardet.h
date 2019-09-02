@@ -6,6 +6,7 @@
 //#include "./public_defines.h"
 #include "textcodecutils_global.h"
 #include <QFile>
+#include <QDebug>
 
 class TEXTCODECUTILSSHARED_EXPORT QChardet
 {
