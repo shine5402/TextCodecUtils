@@ -38,3 +38,5 @@ QString FileIOWithCodecHelper::readTextFileInTextCodec(const QString& path, QTex
     }
     return QString();
 }
+
+FileIOWithCodecHelper::FileNotExists::FileNotExists():std::runtime_error("File not exists."){}
