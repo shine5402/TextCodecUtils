@@ -24,11 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     availabletextcodecdialog.cpp \
+    fileiowithcodechelper.cpp \
     qchardet.cpp \
     textcodecconvertdialog.cpp \
     textconverthelper.cpp
 
 HEADERS += \
+        fileiowithcodechelper.h \
         textcodecutils_global.h \ 
     availabletextcodecdialog.h \
     qchardet.h \

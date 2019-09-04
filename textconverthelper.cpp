@@ -1,18 +1,5 @@
 ﻿#include "textconverthelper.h"
 
-bool TextConvertHelper::backupFile(QFile* file,QWidget* messageBoxParent)
-{
-    auto path = QFileInfo(*file).absoluteFilePath();
-    QFile bakFile(path + ".bak");
-    if (bakFile.exists())
-        bakFile.remove();
-    if (!file->copy(path + ".bak"))
-    {
-        QMessageBox::critical(messageBoxParent,QCoreApplication::translate("TextConvertHelper", "无法备份%1").arg(path + ".bak"),QCoreApplication::translate("TextConvertHelper", "<h3>程序无法对%1进行备份</h3><p>在备份时出现错误。Qt提供的错误说明为：%2</p><p>你仍可以令程序继续转换，但是之前提到的<b>风险</b>仍然存在，且出现问题时您无法恢复。</p><p>确定要继续转换吗？</p>").arg(path).arg(file->errorString()));
-        return false;
-    }
-    return true;
-}
 
 bool TextConvertHelper::processFileTextCodecConvert(const QString& path, QTextCodec *&sourceCodec, QTextCodec *&targetCodec, QWidget* messageBoxParent){
 
@@ -50,7 +37,7 @@ bool TextConvertHelper::processFileTextCodecConvert(const QString& path, QTextCo
                                                        QMessageBox::Ok | QMessageBox::Cancel);
         if (infoDialogCode == QMessageBox::Ok){
             targetCodec = dialog->getTargetCodec();
-            if (backupFile(file,messageBoxParent)){
+            if (FileIOWithCodecHelper::backupFile(file,messageBoxParent)){
                 if (file->open(QIODevice::WriteOnly | QIODevice::Text)){
                     auto fileWriteCode = file->write(dialog->getEncodedTargetByteArray());
                     if (fileWriteCode == -1){

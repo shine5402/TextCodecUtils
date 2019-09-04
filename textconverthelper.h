@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QCoreApplication>
 #include "./public_defines.h"
+#include "fileiowithcodechelper.h"
 
 class TEXTCODECUTILSSHARED_EXPORT TextConvertHelper
 {
@@ -16,8 +17,6 @@ public:
     void static writeTextFileInTextCodec(const QString& content, const QString& path, QTextCodec* textCodec);
     void static setDefaultTextCodecName(const QByteArray& codecName);
     const QByteArray& getDefaultTextCodecName();
-private:
-    bool static backupFile(QFile *file, QWidget *messageBoxParent);
 };
 
 #endif // TEXTCONVERTHELPER_H
